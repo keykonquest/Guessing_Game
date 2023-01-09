@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Image Guess</title>
+        <script>
+            current = 0;
+            
+            window.onload = init;
+            function init() {
+                let heading = document.getElementById('headline');
+                heading.innerHTML = "What is this?";
+                let image = document.getElementById('image');
+                image.onclick = showImage;
+            }
+
+            function showImage() {
+                let numbers = ['zero', 'one', 'two', 'three', 'four', 'five'];
+                if (current <= numbers.length) {
+                let heading = document.getElementById('headline');
+                heading.innerHTML = "Did you say:";
+                let subText = document.getElementById('subline');
+                subText.innerHTML = "";
+                let number = numbers[current]
+                let image = document.getElementById('image');
+                image.src = `Images/${number}.jpg`
+                image.onclick = nextImage;
+                } else {
+                    console.log('Game Over')
+                    return false
+                }
+                //setTimeout(() => {
+                //    nextImage(numbersList);
+                //},10000)
+            }
+
+            function nextImage() {
+                let numbers = ['zero', 'one', 'two', 'three', 'four', 'five'];
+                current++;
+                if (current <= numbers.length) {
+                    let heading = document.getElementById('headline');
+                    heading.innerHTML = "What is this?";
+                    let subText = document.getElementById('subline');
+                    subText.innerHTML = "(Click to reveal)";
+                    let number = numbers[current];
+                    let image = document.getElementById('image');
+                    image.src = `Images/${number}blur.jpg`;
+                    image.onclick = showImage;
+                } else {
+                    console.log('Game Over')
+                    return false;
+                }
+            }
+        </script>
+        <style>
+            body {
+                text-align: center;
+                background: rgb(172, 253, 219);
+            }
+            #headline {
+                font-size: 3rem;
+            }
+            #image {
+                width: 600px;
+                height: 650px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="headline"></h1>
+        <img src="Images/zeroblur.jpg" alt="blurred image" id="image">
+        <p id="subline">(Click to reveal)</p>
+    </body>
+</html>
