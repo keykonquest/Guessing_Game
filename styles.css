@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    background: rgb(172, 253, 219);
+}
+
+#headline {
+    font-size: 3rem;
+}
+
+#image {
+    width: 600px;
+    height: 650px;
+}
