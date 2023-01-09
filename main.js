@@ -18,14 +18,12 @@ function showImage() {
     let number = numbers[current]
     let image = document.getElementById('image');
     image.src = `Images/${number}.jpg`
-    image.onclick = nextImage;
+    setTimeout(() => {
+        nextImage()}, 3500);
     } else {
         console.log('Game Over')
         return false
     }
-    //setTimeout(() => {
-    //    nextImage(numbersList);
-    //},10000)
 }
 
 function nextImage() {
